@@ -1,4 +1,5 @@
-const url = "http://api.coindesk.com/v1/bpi/historical/close.json";
+const url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=<${$datefrom}>&end=<${$dateto}>`;
+
 
 axios.get(url)
   .then(response => {
@@ -6,10 +7,6 @@ axios.get(url)
     printTheChart(response.data)
   })
   .catch()
-
-
-  
-
 
 
 function printTheChart(data) {
@@ -38,3 +35,15 @@ function printTheChart(data) {
     
 });
 }
+
+const $datefrom = document.querySelector('#datefrom')
+
+$datefrom.addEventListener('click', (event)=> {
+  // alert("coucou")
+})
+
+const $dateto = document.querySelector('#dateto')
+
+$dateto.addEventListener('click', (event)=> {
+  // alert("coucou date to")
+})
